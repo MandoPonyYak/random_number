@@ -1,0 +1,19 @@
+class RandomGenerator:
+    def __init__(self, seed):
+        self.seed = seed
+        
+    def generate_random_number(self):
+        # Параметры для генерации случайного числа
+        a = 1103515245
+        b = 12345
+        m = 2**31
+        
+        # Генерируем следующее случайное число
+        self.seed = (a * self.seed + b) % m
+        
+        return self.seed
+
+# Пример использования
+generator = RandomGenerator(42)  # Инициализация генератора с начальным значением (seed)
+random_num = generator.generate_random_number()
+print(random_num)
